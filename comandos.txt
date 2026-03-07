@@ -1,0 +1,30 @@
+  223  uptime >> sistema.log
+  224  cat sistema.log 
+  225  chmod 444 sistema.log
+  226  ls
+  227  mkdir src docs data
+  228  ls
+  229  ls -a
+  230  ls .consigna
+  231  cd .consigna/
+  232  ls
+  233  ls --a
+  234  ls -a
+  235  cd ..
+  236  mv .consigna/Instrucciones_Practica.pdf data/
+  237  mv .consigna/.COMUNICADO.txt data/
+  238  ls data
+  239  ls
+  240  cd data/
+  241  ls -a
+  242  cd ..
+  243  rm -r .consigna
+  244  ls -a
+  245  nano src/check_engine.sh
+  246  chmod 700 src/check_engine.sh
+  247  ls 
+  248  tree 
+  249  tree -pa
+  250  ./src/check_engine.sh
+  251  ls
+  252  history 30 > comandos.txt
