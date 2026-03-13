@@ -1,0 +1,27 @@
+Gestión de archivos y procesamiento de informacion en Linux
+mkdir practica_sistema
+cd practica_sistema
+mkdir datos scripts reportes backup
+ls -l
+cd datos
+cd datos/
+echo usuarios.txt
+echo ana >> usuarios.txt
+echo juan >> usuarios.txt
+echo pedro >> usuarios.txt
+echo ana >> usuarios.txt
+echo maria >> usuarios.txt
+echo juan >> usuarios.txt
+echo lucas >> usuarios.txt
+echo accesos.log
+cd ..
+cat practica_sistema
+cd practica_sistema/datos
+cd practica_sistema/
+cd datos/
+ls -la
+cd ..
+find . -name *.txt
+find . -name *.log
+find . -type f -name *.txt | wc -l
+grep error accesos.log
