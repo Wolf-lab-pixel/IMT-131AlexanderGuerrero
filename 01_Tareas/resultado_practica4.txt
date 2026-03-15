@@ -1,0 +1,89 @@
+Practica Linux - Comandos y salidas
+Salida:
+mkdir practica_linux
+Salida:
+(sin salida)
+cd practica_linux
+Salida:
+(sin salida)
+mkdir datos codigo reportes
+Salida:
+(sin salida)
+ls
+Salida:
+codigo  datos  reportes
+cd datos
+Salida:
+(sin salida)
+echo "ana" >> nombres.txt
+Salida:
+(sin salida)
+echo "juan" >> nombres.txt
+Salida:
+(sin salida)
+echo "pedro" >> nombres.txt
+Salida:
+(sin salida)
+echo "ana" >> nombres.txt
+Salida:
+(sin salida)
+echo "maria" >> nombres.txt
+Salida:
+(sin salida)
+echo "juan" >> nombres.txt
+Salida:
+(sin salida)
+echo "error: memoria llena" >> log.txt
+Salida:
+(sin salida)
+echo "info: proceso iniciado" >> log.txt
+Salida:
+(sin salida)
+echo "warning: espacio bajo" >> log.txt
+Salida:
+(sin salida)
+echo "error: archivo no encontrado" >> log.txt
+Salida:
+(sin salida)
+echo "info: proceso terminado" >> log.txt
+Salida:
+(sin salida)
+cd ..
+Salida:
+(sin salida)
+grep -i error log.txt
+Salida:
+grep: log.txt: No existe el archivo o el directorio
+grep -i error datos/log.txt
+Salida:
+error: memoria llena
+error: archivo no encontrado
+grep info datos/log.txt
+Salida:
+info: proceso iniciado
+info: proceso terminado
+wc -l datos/nombres.txt
+Salida:
+6 datos/nombres.txt
+grep "ana" datos/nombres.txt | wc -l
+Salida:
+2
+sort datos/nombres.txt
+Salida:
+ana
+ana
+juan
+juan
+maria
+pedro
+find . -name "*.txt"
+Salida:
+./datos/nombres.txt
+./datos/log.txt
+find . -name "*.txt" | wc -l
+Salida:
+2
+grep "error" datos/log.txt | sort
+Salida:
+error: archivo no encontrado
+error: memoria llena
