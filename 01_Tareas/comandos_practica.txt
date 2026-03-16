@@ -1,0 +1,225 @@
+PRACTICA LINUX - GESTION DE ARCHIVOS
+
+-------------------------------------
+PARTE 1: CREACION DE LA ESTRUCTURA
+-------------------------------------
+
+Comandos utilizados:
+
+mkdir practica_sistema
+cd practica_sistema
+mkdir datos
+mkdir scripts
+mkdir reportes
+mkdir backup
+ls -l
+
+Salida esperada:
+
+datos
+scripts
+reportes
+backup
+
+
+-------------------------------------
+PARTE 2: CREACION DE ARCHIVOS
+-------------------------------------
+
+cd datos
+
+echo "ana" >> usuarios.txt
+echo "juan" >> usuarios.txt
+echo "pedro" >> usuarios.txt
+echo "ana" >> usuarios.txt
+echo "maria" >> usuarios.txt
+echo "juan" >> usuarios.txt
+echo "lucas" >> usuarios.txt
+
+echo "info: login correcto ana" >> accesos.log
+echo "error: contraseña incorrecta juan" >> accesos.log
+echo "info: login correcto maria" >> accesos.log
+echo "warning: intento sospechoso pedro" >> accesos.log
+echo "error: usuario no encontrado carlos" >> accesos.log
+echo "info: login correcto lucas" >> accesos.log
+echo "error: contraseña incorrecta ana" >> accesos.log
+
+cd ..
+
+
+-------------------------------------
+PARTE 3: EXPLORACION DEL SISTEMA
+-------------------------------------
+
+Ejercicio 1
+Comando:
+
+ls -l
+
+Ejercicio 2
+Comando:
+
+ls datos
+
+Ejercicio 3
+Comando:
+
+ls -l datos
+
+
+-------------------------------------
+PARTE 4: BUSQUEDA DE ARCHIVOS
+-------------------------------------
+
+Ejercicio 4
+
+find . -name "*.txt"
+
+Salida:
+
+./datos/usuarios.txt
+
+Ejercicio 5
+
+find . -name "*.log"
+
+Salida:
+
+./datos/accesos.log
+
+Ejercicio 6
+
+find . -name "*.txt" | wc -l
+
+Salida:
+
+1
+
+
+-------------------------------------
+PARTE 5: PROCESAMIENTO DE TEXTO
+-------------------------------------
+
+Ejercicio 7
+
+grep "error" datos/accesos.log
+
+Salida:
+
+error: contraseña incorrecta juan
+error: usuario no encontrado carlos
+error: contraseña incorrecta ana
+
+
+Ejercicio 8
+
+grep -c "error" datos/accesos.log
+
+Salida:
+
+3
+
+
+Ejercicio 9
+
+grep "info" datos/accesos.log
+
+Salida:
+
+info: login correcto ana
+info: login correcto maria
+info: login correcto lucas
+
+
+Ejercicio 10
+
+sort datos/usuarios.txt
+
+Salida:
+
+ana
+ana
+juan
+juan
+lucas
+maria
+pedro
+
+
+Ejercicio 11
+
+wc -l datos/usuarios.txt
+
+Salida:
+
+7 datos/usuarios.txt
+
+
+Ejercicio 12
+
+grep "error" datos/accesos.log | sort
+
+Salida:
+
+error: contraseña incorrecta ana
+error: contraseña incorrecta juan
+error: usuario no encontrado carlos
+
+
+-------------------------------------
+PARTE 6: GENERACION DE REPORTE
+-------------------------------------
+
+echo "Numero total de usuarios:" > reportes/reporte_sistema.txt
+wc -l datos/usuarios.txt >> reportes/reporte_sistema.txt
+
+echo "Numero total de errores:" >> reportes/reporte_sistema.txt
+grep -c "error" datos/accesos.log >> reportes/reporte_sistema.txt
+
+echo "Usuarios ordenados:" >> reportes/reporte_sistema.txt
+sort datos/usuarios.txt >> reportes/reporte_sistema.txt
+
+
+-------------------------------------
+PARTE 7: SCRIPT
+-------------------------------------
+
+nano scripts/analisis.sh
+
+Contenido del script:
+
+#!/bin/bash
+
+echo "Numero total de usuarios:"
+wc -l datos/usuarios.txt
+
+echo "Numero total de errores:"
+grep -c "error" datos/accesos.log
+
+echo "Usuarios ordenados alfabeticamente:"
+sort datos/usuarios.txt
+
+
+Permiso de ejecucion:
+
+chmod +x scripts/analisis.sh
+
+Ejecucion del script:
+
+./scripts/analisis.sh
+
+Salida final:
+
+Numero total de usuarios:
+7 datos/usuarios.txt
+Numero total de errores:
+3
+Usuarios ordenados alfabeticamente:
+ana
+ana
+juan
+juan
+lucas
+maria
+pedro
+
